@@ -1,8 +1,11 @@
 # Variables de entorno
-/.env
+.env
+.env.local
+.env.production
 
-# Carpeta vendor
-/vendor/
+# Composer
+vendor/
 
-# Archivo de errores
-/php_error_log
+# Logs
+*.log
+php_error_log

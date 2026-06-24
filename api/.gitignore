@@ -1,6 +1,8 @@
-# Variables de entorno
+# Variables de entorno reales
 .env
-.env.*
+.env.local
+.env.production
+.env.development
 
 # Logs
 *.log

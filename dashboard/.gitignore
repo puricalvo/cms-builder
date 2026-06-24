@@ -1,7 +1,11 @@
+# Variables de entorno
 .env
+.env.local
+.env.production
 
-/vendor/
+# Composer
+vendor/
 
-php_error_log
+# Logs
 *.log
-
+php_error_log
