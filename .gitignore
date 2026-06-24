@@ -1,0 +1,17 @@
+# Variables de entorno
+.env
+
+# Composer
+vendor/
+
+# Logs
+*.log
+php_error_log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Backups temporales
+*.bak
+*.tmp
