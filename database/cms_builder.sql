@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3308
--- Tiempo de generación: 24-06-2026 a las 09:33:13
+-- Tiempo de generación: 28-06-2026 a las 10:59:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -44,15 +44,16 @@ CREATE TABLE `admins` (
   `scode_admin` text DEFAULT NULL,
   `chatgpt_admin` text DEFAULT '{}',
   `date_created_admin` date DEFAULT NULL,
-  `date_updated_admin` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date_updated_admin` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `chatgpt_code_admin` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `admins`
 --
 
-INSERT INTO `admins` (`id_admin`, `rol_admin`, `permissions_admin`, `email_admin`, `password_admin`, `token_admin`, `token_exp_admin`, `status_admin`, `title_admin`, `symbol_admin`, `font_admin`, `color_admin`, `back_admin`, `scode_admin`, `chatgpt_admin`, `date_created_admin`, `date_updated_admin`) VALUES
-(1, 'superadmin', '{\"todo\":\"on\"}', 'admin@dashboard.com', '$2a$07$azybxcags23425sdg23sdeanQZqjaf6Birm2NvcYTNtJw24CsO5uq', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODIyMjc0MzksImV4cCI6MTc4MjMxMzgzOSwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBkYXNoYm9hcmQuY29tIn19.88B2s8KKzvfRPg4foeo7fIRJIApS-rtJweOhbBLa_Jg', '1782313839', 1, 'Inshot', '<i class=\"bi bi-back\"></i>', '<link href=\"https://fonts.googleapis.com/css2?family=IBM Plex Sans:ital,wght@0,100..700;1,100..700&display=swap\" rel=\"stylesheet\">', '#983bba', 'http://cms-builder-dash.com/views/assets/files/6a2ed8ee7cbac6.jpg', '0ganft', NULL, '2026-06-13', '2026-06-23 15:10:39');
+INSERT INTO `admins` (`id_admin`, `rol_admin`, `permissions_admin`, `email_admin`, `password_admin`, `token_admin`, `token_exp_admin`, `status_admin`, `title_admin`, `symbol_admin`, `font_admin`, `color_admin`, `back_admin`, `scode_admin`, `chatgpt_admin`, `date_created_admin`, `date_updated_admin`, `chatgpt_code_admin`) VALUES
+(1, 'superadmin', '{\"todo\":\"on\"}', 'admin@dashboard.com', '', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODI1ODgzNDMsImV4cCI6MTc4MjY3NDc0MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBkYXNoYm9hcmQuY29tIn19.gTcD5X9AO9vClPSOeDbjKFcLNMUHSFvA_BJhXYduC8U', '1782674743', 1, 'Inshot', '<i class=\"bi bi-back\"></i>', '<link href=\"https://fonts.googleapis.com/css2?family=IBM Plex Sans:ital,wght@0,100..700;1,100..700&display=swap\" rel=\"stylesheet\">', '#1788de', 'http://cms-builder-dash.com/views/assets/files/6a2ed8ee7cbac6.jpg', '8fgnxt', '{\"\":\"\"}', '2026-06-13', '2026-06-28 08:53:45', '<br>');
 
 -- --------------------------------------------------------
 
@@ -93,6 +94,7 @@ CREATE TABLE `categories` (
   `id_category` int(11) NOT NULL,
   `title_category` text DEFAULT NULL,
   `class_category` text DEFAULT NULL,
+  `chatgpt_admin` longtext DEFAULT NULL,
   `date_created_category` date DEFAULT NULL,
   `date_updated_category` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -101,11 +103,11 @@ CREATE TABLE `categories` (
 -- Volcado de datos para la tabla `categories`
 --
 
-INSERT INTO `categories` (`id_category`, `title_category`, `class_category`, `date_created_category`, `date_updated_category`) VALUES
-(1, 'Nature', 'nature', '2026-06-14', '2026-06-14 16:32:30'),
-(2, 'Models', 'models', '2026-06-14', '2026-06-14 16:33:25'),
-(3, 'People', 'people', '2026-06-14', '2026-06-14 16:34:06'),
-(4, 'Outdoor', 'outdoor', '2026-06-14', '2026-06-14 16:35:20');
+INSERT INTO `categories` (`id_category`, `title_category`, `class_category`, `chatgpt_admin`, `date_created_category`, `date_updated_category`) VALUES
+(1, 'Nature', 'nature', NULL, '2026-06-14', '2026-06-14 16:32:30'),
+(2, 'Models', 'models', NULL, '2026-06-14', '2026-06-14 16:33:25'),
+(3, 'People', 'people', NULL, '2026-06-14', '2026-06-14 16:34:06'),
+(4, 'Outdoor', 'outdoor', NULL, '2026-06-14', '2026-06-14 16:35:20');
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ INSERT INTO `columns` (`id_column`, `id_module_column`, `title_column`, `alias_c
 (8, 2, 'title_admin', 'título', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
 (9, 2, 'symbol_admin', 'simbolo', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
 (10, 2, 'font_admin', 'tipografía', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
-(11, 2, 'color_admin', 'color', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
+(11, 2, 'color_admin', 'color', 'color', '', 0, '2026-06-13', '2026-06-26 16:06:10'),
 (12, 2, 'back_admin', 'fondo', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
 (13, 4, 'name_profile', 'Nombre', 'text', NULL, 1, '2026-06-14', '2026-06-14 05:24:28'),
 (14, 4, 'about_profile', 'Perfil', 'text', NULL, 1, '2026-06-14', '2026-06-14 05:24:28'),
@@ -176,7 +178,9 @@ INSERT INTO `columns` (`id_column`, `id_module_column`, `title_column`, `alias_c
 (51, 15, 'image_store', 'Imagen', 'image', NULL, 1, '2026-06-21', '2026-06-21 17:01:20'),
 (52, 15, 'rate_store', 'Promedio', 'double', NULL, 1, '2026-06-21', '2026-06-21 17:01:21'),
 (53, 15, 'count_store', 'Calificaciones', 'int', NULL, 1, '2026-06-21', '2026-06-21 17:01:21'),
-(54, 2, 'chatgpt_admin', 'ChatGPT', 'object', NULL, 0, '2026-06-23', '2026-06-23 04:17:05');
+(54, 2, 'chatgpt_admin', 'ChatGPT', 'object', NULL, 0, '2026-06-23', '2026-06-23 04:17:05'),
+(56, 6, 'chatgpt_admin', 'ChatGPT', 'chatgpt', NULL, 1, '2026-06-27', '2026-06-27 20:35:33'),
+(57, 2, 'chatgpt_code_admin', 'ChatGPT', 'chatgpt', '', 0, '2026-06-28', '2026-06-28 08:52:59');
 
 -- --------------------------------------------------------
 
@@ -479,7 +483,7 @@ INSERT INTO `sales` (`id_sale`, `profit_sale`, `date_sale`, `date_created_sale`,
 (52, 490356, '2024-10', '2024-10-17', '2024-10-16 03:41:48'),
 (53, 499724, '2024-10', '2024-10-10', '2024-10-16 03:41:48'),
 (54, 509092, '2024-10', '2024-10-21', '2024-10-16 03:41:48'),
-(55, 518460, '2024-10', '2024-10-25', '2024-10-16 03:41:48');
+(55, 518460, '2026-10', '2024-10-25', '2026-06-26 06:12:58');
 
 -- --------------------------------------------------------
 
@@ -611,7 +615,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT de la tabla `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `blogs`
@@ -629,7 +633,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `columns`
 --
 ALTER TABLE `columns`
-  MODIFY `id_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_column` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de la tabla `files`
