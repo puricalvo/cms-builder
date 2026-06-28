@@ -13,6 +13,14 @@ El sistema permite crear páginas, módulos personalizados, tablas dinámicas, f
 
 ---
 
+# El instalador inicial del sistema se encuentra en:
+
+https://github.com/puricalvo/cms-install-builder
+
+---
+
+---
+
 # Estructura del proyecto
 
 ```
