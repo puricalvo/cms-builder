@@ -25,14 +25,7 @@ Custom
    Start Custom
   ================================-->
 
-  /*
-|--------------------------------------------------------------------------
-| CUSTOM MODULE TEMPLATE
-|--------------------------------------------------------------------------
-| Este archivo es generado automáticamente por el CMS.
-| Sustituye el contenido de ejemplo por tu propio código desde aquí.
-|--------------------------------------------------------------------------
-*/
+
 
   <div class="card rounded">
   	

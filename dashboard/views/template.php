@@ -74,7 +74,29 @@ if($adminTable->status == 404){
 
 		<?php if ($admin->font_admin != null): ?>
 
-			<?php echo $admin->font_admin ?>
+			<?php
+
+				switch ($admin->font_admin) {
+
+					case "inter":
+						echo '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">';
+						break;
+
+					case "roboto":
+						echo '<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">';
+						break;
+
+					case "poppins":
+						echo '<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">';
+						break;
+
+					case "montserrat":
+						echo '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">';
+						break;
+
+				}
+
+			?>
 
 		<?php endif ?>
 
@@ -91,7 +113,7 @@ if($adminTable->status == 404){
 			<?php if ($admin->font_admin != null):?>
 
 				body{
-					font-family: <?php echo str_replace("+"," ",explode("=",explode(":",explode("?",$admin->font_admin)[1])[0])[1]) ?>, sans-serif !important;	
+					font-family: '<?php echo ucfirst($admin->font_admin) ?>', sans-serif !important;
 				}
 
 			<?php endif ?>

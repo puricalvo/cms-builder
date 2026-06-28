@@ -114,7 +114,9 @@ class DynamicController{
 
 						$save = CurlController::request($url,$method,$fields);
 
+						
 						if($save->status == 200){
+
 
 							echo '
 

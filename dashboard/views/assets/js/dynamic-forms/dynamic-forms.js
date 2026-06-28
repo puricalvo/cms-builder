@@ -280,7 +280,7 @@ $(document).on("change", ".changeChatGPT", function () {
       fncMatPreloader("off");
       fncSweetAlert("close", ".", "");
 
-      $("#" + title_prompt).summernote("code", response);
+      $("#" + title_prompt + "_chatgpt").summernote("code", response);
     },
   });
 });

@@ -74,7 +74,9 @@ class InstallController{
 				font_admin TEXT NULL DEFAULT NULL,
 				color_admin TEXT NULL DEFAULT NULL,
 				back_admin TEXT NULL DEFAULT NULL, 
-				scode_admin TEXT NULL DEFAULT NULL, 
+				scode_admin TEXT NULL DEFAULT NULL,
+				chatgpt_admin TEXT NULL DEFAULT NULL,
+				chatgpt_code_admin TEXT NULL DEFAULT NULL,  
 				date_created_admin DATE NULL DEFAULT NULL,
 				date_updated_admin TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				PRIMARY KEY (id_admin))";
@@ -91,6 +93,8 @@ class InstallController{
 				url_page TEXT NULL DEFAULT NULL,
 				icon_page TEXT NULL DEFAULT NULL,
 				type_page TEXT NULL DEFAULT NULL,
+				menu_type_page INT(11) NOT NULL DEFAULT 0,
+    			parent_id_page INT(11) NOT NULL DEFAULT 0,
 				order_page INT NULL DEFAULT '1',
 				date_created_page DATE NULL DEFAULT NULL,
 				date_updated_page TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -213,6 +217,8 @@ class InstallController{
 					"url_page" => "inicio",
 					"icon_page" => "bi bi-house-door-fill",
 					"type_page" => "modules",
+					"menu_type_page" => 0,
+    				"parent_id_page" => 0,
 					"order_page" => 1,
 					"date_created_page" => date("Y-m-d")
 				);
@@ -230,6 +236,8 @@ class InstallController{
 					"url_page" => "admins",
 					"icon_page" => "bi bi-person-fill-gear",
 					"type_page" => "modules",
+					"menu_type_page" => 0,
+    				"parent_id_page" => 0,
 					"order_page" => 2,
 					"date_created_page" => date("Y-m-d")
 				);
@@ -247,6 +255,8 @@ class InstallController{
 					"url_page" => "archivos",
 					"icon_page" => "bi bi-file-earmark-image",
 					"type_page" => "custom",
+					"menu_type_page" => 0,
+    				"parent_id_page" => 0,
 					"order_page" => 3,
 					"date_created_page" => date("Y-m-d")
 				);
@@ -409,7 +419,7 @@ class InstallController{
 							"id_module_column" => $tableModule->results->lastId,
 							"title_column" =>  "color_admin",
 							"alias_column" => "color",
-							"type_column" =>  "text",
+							"type_column" =>  "color",
 							"matrix_column"  => "",
 							"visible_column" => 0,
 							"date_created_column" => date("Y-m-d")
@@ -429,6 +439,24 @@ class InstallController{
 							"alias_column" => "seguridad",
 							"type_column" =>  "text",
 							"matrix_column"  => "",
+							"visible_column" => 0,
+							"date_created_column" => date("Y-m-d")
+						],
+						[
+							"id_module_column" => $tableModule->results->lastId,
+							"title_column" => "chatgpt_admin",
+							"alias_column" => "ChatGPT",
+							"type_column" => "object",
+							"matrix_column" => "",
+							"visible_column" => 0,
+							"date_created_column" => date("Y-m-d")
+						],
+						[
+							"id_module_column" => $tableModule->results->lastId,
+							"title_column" => "chatgpt_code_admin",
+							"alias_column" => "ChatGPT",
+							"type_column" => "chatgpt",
+							"matrix_column" => "",
 							"visible_column" => 0,
 							"date_created_column" => date("Y-m-d")
 						]
