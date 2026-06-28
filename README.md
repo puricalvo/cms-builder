@@ -171,9 +171,31 @@ DB_USER=
 DB_PASS=
 ```
 
----
+# Recuperación de contraseña
 
-# Roles de usuario
+El sistema incorpora una funcionalidad de recuperación de contraseña mediante correo electrónico.
+
+El usuario puede solicitar el restablecimiento de su contraseña introduciendo la dirección de correo electrónico asociada a su cuenta.
+
+## Desarrollo local
+
+Durante el desarrollo en un entorno local (por ejemplo, XAMPP), los correos electrónicos pueden almacenarse en el sistema de correo configurado para el entorno, como la carpeta `mailoutput`, en lugar de enviarse a una dirección de correo real.
+
+## Producción
+
+Para un entorno de producción se recomienda configurar un servidor SMTP mediante las siguientes variables de entorno:
+
+```env
+MAIL_HOST=
+MAIL_USER=
+MAIL_PASS=
+MAIL_PORT=
+```
+
+Con esta configuración, los correos de recuperación de contraseña se enviarán directamente al destinatario.
+ 
+
+## Roles de usuario
 
 ## Superadmin
 
