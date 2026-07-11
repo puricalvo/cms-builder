@@ -280,19 +280,21 @@ Antes de desplegar el proyecto se recomienda:
 
 ## 🌐 Demo
 
-Puedes probar una versión pública del CMS en:
+Prueba la versión pública del CMS:
 
-**https://cms-builder.ifree.page/dashboard**
+**Demo Online**
 
-Repositorio de la demo:
+https://cms-builder.ifree.page/dashboard
 
----
-```go
+**Repositorio de la demo**
 
-```
----
+Existe un repositorio específico con la versión pública de demostración del CMS, donde encontrarás:
 
-**(Próximamente disponible)**
+- Enlace a la demo online.
+- Credenciales de acceso.
+- Información sobre el modo demostración.
+
+👉 https://github.com/puricalvo/cms-builder-demo
 
 ## 🌍 Portfolio
 
