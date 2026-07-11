@@ -15,3 +15,8 @@ Thumbs.db
 # Backups temporales
 *.bak
 *.tmp
+
+# Archivos comprimidos
+*.zip
+*.rar
+*.7z
