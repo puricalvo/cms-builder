@@ -31,6 +31,8 @@ class InstallController{
 				InstallController::infoDatabase()["user"],
 				InstallController::infoDatabase()["pass"]
 			);
+			$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$link->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
 			$link->exec("set names utf8");
 

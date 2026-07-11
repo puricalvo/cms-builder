@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3308
--- Tiempo de generación: 28-06-2026 a las 10:59:15
+-- Tiempo de generación: 10-07-2026 a las 17:05:35
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -45,7 +45,7 @@ CREATE TABLE `admins` (
   `chatgpt_admin` text DEFAULT '{}',
   `date_created_admin` date DEFAULT NULL,
   `date_updated_admin` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `chatgpt_code_admin` text DEFAULT NULL
+  `chatgpt_code_admin` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -53,7 +53,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id_admin`, `rol_admin`, `permissions_admin`, `email_admin`, `password_admin`, `token_admin`, `token_exp_admin`, `status_admin`, `title_admin`, `symbol_admin`, `font_admin`, `color_admin`, `back_admin`, `scode_admin`, `chatgpt_admin`, `date_created_admin`, `date_updated_admin`, `chatgpt_code_admin`) VALUES
-(1, 'superadmin', '{\"todo\":\"on\"}', 'admin@dashboard.com', '', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODI1ODgzNDMsImV4cCI6MTc4MjY3NDc0MywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBkYXNoYm9hcmQuY29tIn19.gTcD5X9AO9vClPSOeDbjKFcLNMUHSFvA_BJhXYduC8U', '1782674743', 1, 'Inshot', '<i class=\"bi bi-back\"></i>', '<link href=\"https://fonts.googleapis.com/css2?family=IBM Plex Sans:ital,wght@0,100..700;1,100..700&display=swap\" rel=\"stylesheet\">', '#1788de', 'http://cms-builder-dash.com/views/assets/files/6a2ed8ee7cbac6.jpg', '8fgnxt', '{\"\":\"\"}', '2026-06-13', '2026-06-28 08:53:45', '<br>');
+(1, 'superadmin', '{\"todo\":\"on\"}', 'admin@dashboard.com', '', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODM2NTYzNTcsImV4cCI6MTc4Mzc0Mjc1NywiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBkYXNoYm9hcmQuY29tIn19.l7QepZLbQ1aEmimNHAWDJ_JZfPNcgoH14ruKu0F8lRM', '1783742757', 1, 'Inshot', '<i class=\"bi bi-back\"></i>', 'roboto', '#1788de', 'http://cms-builder-dash.com/views/assets/files/6a2ed8ee7cbac6.jpg', 'qp0kau', '{}', '2026-06-13', '2026-07-10 14:43:01', ''),
+(11, 'admin', '{\"todo\":\"on\"}', 'admin@inshot.com', '', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODI3MjY2NDUsImV4cCI6MTc4MjgxMzA0NSwiZGF0YSI6eyJpZCI6MTEsImVtYWlsIjoiYWRtaW5AaW5zaG90LmNvbSJ9fQ.BAcdQI2oKjTWbs17VtlP_NguJmyYKlzphb8dLDhmh2U', '1782813045', 1, '', '', 'roboto', '#e60f0f', '', 'wuhzvy', '{}', '2026-06-29', '2026-07-10 14:41:27', '');
 
 -- --------------------------------------------------------
 
@@ -141,7 +142,7 @@ INSERT INTO `columns` (`id_column`, `id_module_column`, `title_column`, `alias_c
 (7, 2, 'status_admin', 'estado', 'boolean', '', 1, '2026-06-13', '2026-06-13 18:56:46'),
 (8, 2, 'title_admin', 'título', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
 (9, 2, 'symbol_admin', 'simbolo', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
-(10, 2, 'font_admin', 'tipografía', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
+(10, 2, 'font_admin', 'tipografía', 'select', '', 0, '2026-06-13', '2026-07-10 14:40:54'),
 (11, 2, 'color_admin', 'color', 'color', '', 0, '2026-06-13', '2026-06-26 16:06:10'),
 (12, 2, 'back_admin', 'fondo', 'text', '', 0, '2026-06-13', '2026-06-13 18:56:46'),
 (13, 4, 'name_profile', 'Nombre', 'text', NULL, 1, '2026-06-14', '2026-06-14 05:24:28'),
@@ -615,7 +616,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT de la tabla `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `blogs`
