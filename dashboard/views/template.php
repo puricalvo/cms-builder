@@ -30,7 +30,7 @@ $fields = array();
 
 $adminTable = CurlController::request($url,$method,$fields);
 
-// echo '<pre>$adminTable '; print_r($adminTable); echo '</pre>';
+ //echo '<pre>$adminTable '; print_r($adminTable); echo '</pre>';
 
 if($adminTable->status == 404){
 
